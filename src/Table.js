@@ -16,12 +16,10 @@ const cardArray = [
 
 // let rndNum = 0
 // let temp = ""
-let rndCarteTemp = "";
-let rndNumTemp = 0;
 class Table extends React.Component {
   constructor() {
     super();
-
+    
     this.state = {
       counterPlayer: 0,
       counterDealer: 0,
@@ -32,14 +30,16 @@ class Table extends React.Component {
       nameOfWinner: ""
     }
   }
-
+  
   rndCarte() {
+    let rndNumTemp = 0;
+    let rndCarteTemp = "";
     rndNumTemp = Math.floor(Math.random() * 53);
 
     if (rndNumTemp > 52) { rndNumTemp = rndNumTemp - 10 } else if (rndNumTemp < 1) { rndNumTemp = rndNumTemp + 10 }
 
     rndCarteTemp = cardArray[rndNumTemp - 1];
-
+    
     return rndCarteTemp
   }
 
