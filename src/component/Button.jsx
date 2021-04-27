@@ -10,5 +10,5 @@ class Button extends React.Component {
     );
   }
 }
-
+//button appeler dans la table.js avec des valeurs differentes (give and stop)
 export default Button;

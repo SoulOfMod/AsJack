@@ -1,6 +1,6 @@
 import React from "react";
 
-class Game extends React.Component {
+class StartGame extends React.Component {
   render() {
     return (
       <div className='game'>
@@ -13,4 +13,6 @@ class Game extends React.Component {
   }
 }
 
-export default Game;
+//button qui permet de lancer la page de jeu 
+
+export default StartGame;

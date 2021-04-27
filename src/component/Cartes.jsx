@@ -20,7 +20,7 @@ class Cartes extends React.Component {
   }
 }
 
-
+//retourn le contenu de la carte
 
 
 export default Cartes;
