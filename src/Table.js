@@ -148,6 +148,56 @@ class Table extends React.Component {
     })
   }
   //ceci commence le jeu,donne 2 carte et met leur valeur en int 
+
+  renderGame() {
+    return (<div>
+
+      <div className="playGame">
+        <div style={{ height: '100vh', position: 'relative' }}>
+          <h1 style={{ color: '#feb236', textAlign: 'center' }}>Black Jack</h1>
+          {/* titre */}
+
+          <Cartes key={"dealer"} cardList={this.state.dealerCardList} />
+          {this.state.endGame && (<div className='winlost'>
+            <h1>Winner is {this.state.nameOfWinner}</h1>
+          </div>)}
+          {/* montre les cartes du dealer,jeu finis et donne le gagnant */}
+
+          <Cartes key={"player"} cardList={this.state.playerCardList} />
+          {/* montre les cartes du player */}
+
+          <div style={{ bottom: '20px', position: 'absolute' }} className="row col-6 offset-3 flex d-flex justify-content-between">
+            <div className="d-grid gap-2">
+              <Button
+                onClick={this.onClickGive}
+                classe="btn btn-outline-warning btn-lg rounded-pill"
+                color="white"
+                bcolor="#0d6efd"
+                name="Give"
+              />
+              {/* bouton give onclick donne une carte */}
+            </div>
+            <div>
+            </div>
+            <div className="d-grid gap-2">
+              <Button
+                onClick={this.onClickStop}
+                classe="btn btn-outline-warning btn-lg rounded-pill"
+                color="white"
+                bcolor="#dc3545"
+                name="Stop"
+              />
+              {/* bouton stop onclick arrete le give */}
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    )
+  }
+
   render() {
     if (this.state.startGame === false) {
       return (
@@ -155,52 +205,7 @@ class Table extends React.Component {
       )
       //si startgame est false cela return le startgame du jsx
     } else {
-      return (<div>
-
-        <div className="playGame">
-          <div style={{ height: '100vh', position: 'relative' }}>
-            <h1 style={{ color: '#feb236', textAlign: 'center' }}>Black Jack</h1>
-            {/* titre */}
-
-            <Cartes key={"dealer"} cardList={this.state.dealerCardList} />
-            {this.state.endGame && (<div className='winlost'>
-              <h1>Winner is {this.state.nameOfWinner}</h1>
-            </div>)}
-            {/* montre les cartes du dealer,jeu finis et donne le gagnant */}
-
-            <Cartes key={"player"} cardList={this.state.playerCardList} />
-            {/* montre les cartes du player */}
-
-            <div style={{ bottom: '20px', position: 'absolute' }} className="row col-6 offset-3 flex d-flex justify-content-between">
-              <div className="d-grid gap-2">
-                <Button
-                  onClick={this.onClickGive}
-                  classe="btn btn-outline-warning btn-lg rounded-pill"
-                  color="white"
-                  bcolor="#0d6efd"
-                  name="Give"
-                />
-                {/* bouton give onclick donne une carte */}
-              </div>
-              <div>
-              </div>
-              <div className="d-grid gap-2">
-                <Button
-                  onClick={this.onClickStop}
-                  classe="btn btn-outline-warning btn-lg rounded-pill"
-                  color="white"
-                  bcolor="#dc3545"
-                  name="Stop"
-                />
-                {/* bouton stop onclick arrete le give */}
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      )
+      return this.renderGame()
     }
   }
 }
